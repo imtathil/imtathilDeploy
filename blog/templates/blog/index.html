@@ -1,0 +1,320 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+
+{% if messages %}
+{% for messages in messages %}
+<div class="alert alert-{{messages.tags}}"> 
+  {{messages}}
+</div>
+{% endfor %}
+{% endif %}
+
+<!-- Danah start intro -->
+
+<div class="section justify-content-center align-items-center" style="margin-top: 5%; background-color: #EDEBEB; height: 19%; position: relative;">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-7 mb-4 mb-md-0"> <!-- mb-4 for spacing on small screens, mb-md-0 to remove spacing on medium and larger screens -->
+        <video width="88%" height="auto" controls autoplay muted style="margin-top: 10%; margin-right: 7%;">
+          <source src="{% static 'blog\images\Imtathil.mp4' %}" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-md-4">
+        <h1 style="color:#3B5286; margin-top: 40%;"> إمتَـثل </h1>
+    <h1 style="color:#3B5286 ;"> مساعدك الذكي للإمتثال </h1>
+    <p style="font-size: 0.9rem;"> تهدف أداة <a style="color:#3B5286; font-weight: 200%;"> إمتَـثل </a> إلى أتمتة عمليات تدقيق الالتزام،
+       بهدف ضمان امتثال المنشآت لمستويات التطبيق والالتزام بالضوابط الهيئة الوطنية للأمن السيبراني, باستخدام تقنيات الذكاء الاصطناعي التوليدي </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- features row -->
+
+<div class="section justify-content-center align-items-center" style="margin-top: 5%; margin-bottom: 5%; height: auto;" data-aos="fade-up" id="About_Section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto">
+        <blockquote class="block block-custom bg-white p-5 shadow rounded">
+          <div class="block-custom-icon shadow-sm"><i class=" fa fa-solid fa-clipboard-list text-white"></i></div>
+          <h3 style="color:#3B5286; margin-right: 5%;"> تعزيز الامتثال </h3>
+        </blockquote>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto">
+        <blockquote class="block block-custom bg-white p-5 shadow rounded">
+          <div class="block-custom-icon shadow-sm"><i class="fa fa-hourglass-half  text-white"></i></div>
+          <h3 style="color:#3B5286; margin-right: 5%;"> تقليل التكلفة الزمنية </h3>
+        </blockquote>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto">
+        <blockquote class="block block-custom bg-white p-5 shadow rounded">
+          <div class="block-custom-icon shadow-sm"><i class=" fa fa-solid fa-check-double text-white"></i> </div>
+          <h3 style="color:#3B5286; margin-right: 5%;"> خدمات فورية </h3>
+        </blockquote>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto">
+        <blockquote class="block block-custom bg-white p-5 shadow rounded">
+            <div class="block-custom-icon shadow-sm"><i class=" fa fa-solid fa-robot text-white"></i></div>
+            <h3 style="color:#3B5286; margin-right: 5%;"> أتمتة عمليات التدقيق </h3>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- about row -->
+<div class=" sectin justify-content-center align-items-center" style=" margin-top: 7%; background-color: #E1E7ED; height: 19%; position: relative;" data-aos="fade-up">
+  <div class="row">
+
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+          <div style="margin-right: 6%; margin-left: 6%; margin-top: 10%;"> 
+            <h1 style="color:#3B5286;"> عـن إمتَـثل </h1>
+            <p style="text-align: justify;"> تعتبر <a style="color:#3B5286; font-weight: 200%;"> إمتَـثل </a>  أداة متخصصة في تقديم حلول أتمتة ذكية لعمليات التدقيق. 
+            تهدف إلى تسهيل وتحسين عمليات التدقيق من خلال توظيف التكنولوجيا والحلول الذكية. 
+            فريقنا يطمح إلى توظيف تقنيات الذكاء الاصطناعي التوليدي لتوفير نتائج دقيقة وفعالة.
+            نسعى جاهدين لتحقيق رؤية واضحة، وهي تحقيق تدقيق شامل وموثوق به بشكل أسرع وأكثر كفاءة.
+            نحن نؤمن بأن الأتمتة الذكية لعمليات التدقيق يمكن أن تسهم في توفير الوقت والجهد، وتقليل الأخطاء البشرية، وتعزيز الالتزام. </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="row d-flex justify-content-right align-items-right" style="margin-top:15%; margin-right: 2%; margin-left: 2%; ">
+            <div class="content-wrapper" style="display: flex; align-items: center; margin-right: auto;">
+              <img src="{% static 'blog/images/One.png' %}" alt="user" style="width: 70px; height:70px; margin-right: 10px;">
+              <h4 style="color:#3B5286;"> تعبئة تقرير الالتزام من قبل مدقق الجهة</h4>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-right align-items-right" style="margin-top:5%; margin-right: 2%; margin-left: 2%;">
+            <div class="content-wrapper" style="display: flex; align-items: center; margin-right: auto;">
+              <img src="{% static 'blog/images/Two.png' %}" alt="user" style="width: 70px; height:70px; margin-right: 10px;">
+              <h4 style="color:#3B5286;"> رفع تقرير الالتزام المعبأ في أداة إمتثل</h4>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-right align-items-right" style="margin-top:5%; margin-right: 2%; margin-left: 2%;">
+            <div class="content-wrapper" style="display: flex; align-items: center; margin-right: auto;">
+              <img src="{% static 'blog/images/Three.png' %}"  alt="user" style="width: 70px; height:70px; margin-right: 10px;">
+              <div>
+              <p><h4 style="color:#3B5286;">تقوم الأداة بتوليد تقرير يحتوي على:</h4>
+                •	نسبة الامتثال <br>
+                •	 إجراءات تصحيحية مقترحة باستخدام الذكاء الاصطناعي التوليدي <br>
+                •	رسوم بيانية توضح التزام الجهة  </p>
+            </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+</div>
+
+<!-- end intro -->
+<div class="sectin justify-content-center align-items-center"  style="background-color: #EDEBEB;">
+
+
+<div class=" sectin wrapper d-flex justify-content-center align-items-center" id="services_Section">
+  <div class="container-fluid">
+<!-- start of compliance service -->
+<div class="d-flex justify-content-center align-items-center">
+  <h1 style="color:#3B5286; margin-top: 6%;"> خدمـات إمتَـثل </h1>
+</div>
+    <div class="row" data-aos="fade-up" style="margin-top: 6%;">
+      <div class="col">
+        <div class="card text-dark" style="min-height: 8%; background-color: #02395D">
+          <h1 class="display-5 font-weight-bold" style="margin-top: 2%; color: #ffffff; text-align: center;">خدمات قياس الالتزام</h1>
+          <p> </p>
+          </div>
+        </div>
+    </div>
+
+    <div class="row" data-aos="fade-up" style="margin-top: 40px; margin-bottom:50px ;" >
+      <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="card text-dark card-has-bg click-col" >
+          <img class="card-img d-none" src="#" alt="#">
+            <div class="card-img-overlay d-flex flex-column">
+             <div class="card-body">
+               <small class="card-meta mb-2">NCA-ECC</small>
+                <h4 class="card-title mt-0 "><a class="text-dark" herf="#"> الضوابط الأساسية للأمن السيبراني</a></h4>
+                <small><i class="far fa-clock"></i> سنة الإصدار: 2018  </small>
+              </div>
+              <div class="card-footer">
+                <div class="media text-center">
+                  <!-- a button to take the user to the first service page -->
+                  <a href="{%url 'new_post'%}"class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded " >قِس إمتثالك الآن</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+          <div class="card text-dark card-has-bg click-col" >
+            <img class="card-img d-none" src="#" alt="#">
+              <div class="card-img-overlay d-flex flex-column">
+               <div class="card-body">
+                 <small class="card-meta mb-2">CSCC</small>
+                  <h4 class="card-title mt-0 "><a class="text-dark" herf="#"> ضوابط الأمن السيبراني للأنظمة الحساسة</a></h4>
+                  <small><i class="far fa-clock"></i> سنة الإصدار: 2021 </small>
+                </div>
+                <div class="card-footer">
+                  <div class="media text-center">
+                    <!-- a button to take the user to the first service page -->
+                    <a href="#" class="m-t-10 waves-effect waves-dark btn disabled btn-md btn-rounded">قِس إمتثالك الآن</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+            <div class="card text-dark card-has-bg click-col" >
+              <img class="card-img d-none" src="#" alt="#">
+                <div class="card-img-overlay d-flex flex-column">
+                 <div class="card-body">
+                   <small class="card-meta mb-2">CCC-CST</small>
+                    <h4 class="card-title mt-0 "><a class="text-dark" herf="#"> ضوابط الأمن السيبراني للحوسبة السحابية </a></h4>
+                    <small><i class="far fa-clock"></i> سنة الإصدار :2021 </small>
+                  </div>
+                  <div class="card-footer">
+                    <div class="media text-center">
+                      <!-- a button to take the user to the first service page -->
+                      <a href="#" class="m-t-10 waves-effect waves-dark btn disabled btn-md btn-rounded ">قِس إمتثالك الآن</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+<!-- end of compliance service -->
+
+</div>
+</div>
+
+</div>
+
+
+<div style=" margin-top: 50px; margin-bottom: 25%; background-color: #E1E7ED; height: 12%;" data-aos="fade-up">
+  <div class="row mt-3" >
+
+    <div class="col-md-7 d-flex justify-content-center align-items-center">
+      <div style="margin-right: 6%; margin-left: 6%; margin-top: 10%;"> 
+        <h1 style="color:#3B5286;"> ميـثاق إمتَـثل </h1>
+        <p style="text-align: justify;"> نحن ملتزمون بمبدأ الشفافية والشراكة المستدامة مع عملائنا عن طريق توفير معلومات واضحة حول كيفية استخدام التكنولوجيا الذكية في الأداة،
+          ونقدم التوجيه لضمان استخدامها بطريقة صحيحة وفعالة.
+         بالنسبة للنموذج المدرب المستخدم في الأداة
+         ، نحن نستخدم نموذج يعتمد على الذكاء الاصطناعي التوليدي المعروف باسم AraGPT2.
+          يعتبر AraGPT2 من بين أحدث وأقوى النماذج العربية المتاحة حاليًا، ويتمتع بقدرات متقدمة في فهم وتوليد النصوص.
+           نعمل باستمرار على تحسين دقة وأداء النماذج المستخدمة في الأداة وتطويرها وفقًا لأحدث التقنيات والابتكارات المتاحة.</p>
+      </div>
+    </div>
+
+
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <img src="{% static 'blog/images/Website1.png' %}" alt="user" style="width: 280px; height:250px; margin-right: 1%; margin-top: 20px;">
+    </div>
+
+  </div>
+</div>
+</div>
+
+<style>
+
+.block-custom {
+  position: relative;
+  font-size: 1.1rem;
+  width: 200px;
+  height: 200px;
+}
+
+.block-custom-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -25px;
+  left: 50px;
+  background-color: #CBE54E;
+}
+
+section {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body {
+    background:#F8F7F7;
+  }
+  
+  h1 {
+    color: #fff;
+  }
+
+  .lead {
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+
+  .wrapper {
+    min-height: 80vh;
+    margin: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    border: none;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
+    border-radius: 20px;
+    min-height: 450px;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  /* Other card styles go here */
+
+  @media (max-width: 767px) {
+    /* Media queries for smaller screens */
+  }
+
+  .display-5 {
+    font-size: 1.5rem; 
+    color: #02395D;
+  }
+
+  .btn-rounded.btn-md {
+      padding: 12px 35px;
+      font-size: 16px;
+  }
+
+  .btn-primary,
+  .btn-primary.disabled {
+      background: #02395D;;
+      border: 1px solid #02395D;;
+      -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+      box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+      -webkit-transition: 0.2s ease-in;
+      -o-transition: 0.2s ease-in;
+      transition: 0.2s ease-in;
+  }
+
+  .btn-rounded {
+      border-radius: 60px;
+      padding: 7px 18px;
+  }
+
+  .btn:disabled {
+    background-color: #BDBDBD;
+    cursor: not-allowed;
+  }
+</style>
+
+
+
+
+
+{% endblock content %}

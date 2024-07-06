@@ -1,0 +1,280 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if title %}
+    <title>إمتثل | {{title}}</title>
+    {% else %}
+    <title>إمتثل</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+<!--  i havnt add any logos yet -->
+    <link rel="shortcut icon" href=" {% static 'blog/images/favicon.png' %}">     
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      
+      body {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        background-color: #f7f7f7;
+      }
+
+      .navbar {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 5px;
+        margin-bottom: 20px;
+      }
+
+      .topbar {
+        background-color: #3B5286;
+        padding: 0;
+      }
+      .topbar .container .row {
+        margin: -7px;
+        padding: 0;
+      }
+      .topbar .container .row .col-md-12 {
+        padding: 0;
+      }
+      .topbar p {
+        margin: 0;
+        display: inline-block;
+        font-size: 13px;
+        color: #f1f6ff;
+      }
+      .topbar p > i {
+        margin-right: 5px;
+      }
+      .topbar p:last-child {
+        text-align: right;
+      }
+      header .navbar {
+        margin-bottom: 0;
+      }
+      .topbar li.topbar {
+        display: inline;
+        padding-right: 18px;
+        line-height: 52px;
+        transition: all .3s linear;
+      }
+      .topbar li.topbar:hover {
+        color:#3B5286;
+      }
+      .topbar ul.info i {
+        color: #3B5286;
+        font-style: normal;
+        margin-right: 8px;
+        display: inline-block;
+        position: relative;
+        top: 4px;
+      }
+      .topbar ul.info li {
+        float: right;
+        padding-left: 30px;
+        color: #ffffff;
+        font-size: 13px;
+        line-height: 44px;
+      }
+      .topbar ul.info i span {
+        color: #aaa;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 50px;
+        padding-left: 18px;
+      }
+      ul.social-network {
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+      ul.social-network li {
+        border: none;
+        margin: 0;
+      }
+      ul.social-network li i {
+        margin: 0;
+      }
+      ul.social-network li {
+        display: inline;
+        margin: 0 5px;
+        border: 0px solid #2D2D2D;
+        padding: 5px 0 0;
+        width: 32px;
+        display: inline-block;
+        text-align: center;
+        height: 32px;
+        vertical-align: baseline;
+        color: #000;
+      }
+      ul.social-network {
+        list-style: none;
+        margin: 5px 0 10px -25px;
+        float: right;
+      }
+      .waves-effect {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        vertical-align: middle;
+        z-index: 1;
+        will-change: opacity, transform;
+        transition: .3s ease-out;
+        color: #fff;
+      }
+      a {
+        color: #0a0a0a;
+        text-decoration: none;
+      }
+      li {
+        list-style-type: none;
+      }
+      .bg-image-full {
+        background-position: center center;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+      }
+      .bg-dark {
+        background-color: #3B5286!important;
+      }
+      .mx-background-top-linear {
+        background: -webkit-linear-gradient(45deg, #CBE54E 48%, #3B5286 48%);
+        background: -webkit-linear-gradient(left, #CBE54E 48%,#3B5286 48%);
+        background: linear-gradient(45deg, #CBE54E 48%, #3B5286 48%);
+      }
+    </style>
+</head>
+
+
+<body>
+    <!--  start of the navbar  -->
+  <header> 
+    <div class=" topbar ">
+      <div class="row">
+        <!-- social icon-->
+        <div class="col-sm-12">
+          <ul class="social-network">
+            <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+        <div class="container-fluid">
+          <a class="navbar-brand"  style="color: #ffffff;" >
+
+            <img src="{% static 'blog\images\ImtathilLogo.png'%}" alt="شعار الجامعة" width="70px" ></a> 
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home'%}" style="color: #ffffff;">الرئيسية</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" onclick="scrollToAboutSection(); return false;">عن إمتثل</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" onclick="scrollToservicesSection(); return false;">خدماتنا</a>
+              </li>
+
+            </ul>
+
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"> <a class="nav-link" href="{%url 'profile'%}" style="color: #3B5286;">الملف الشخصي  </a> </li>
+              <li class="nav-item"> <a class="nav-link" href="{%url 'logout'%}" style="color: #3B5286;">تسجيل الخروج </a> </li>    
+            </ul>
+            {% else %}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"> <a class="nav-link" href="{%url 'login'%}" style="color: #3B5286;">تسجيل الدخول </a> </li>
+              <li class="nav-item"> <a class="nav-link" href="{% url 'register'%}" style="color: #3B5286;">تسجيل  </a> </li> 
+            </ul>
+            {% endif %}
+
+          </div>
+       </div> 
+      </nav>
+</header>
+<!--  end of the navbar -->
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+      {% block content %}
+
+
+      {% endblock content %}
+    </div>
+  </div>
+  </section>
+
+  <!-- Footer -->
+  <div style="position: relative; bottom: 0; width: 100%;">
+  
+    <footer class="bg-dark text-center text-white">
+    <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #3B5286">
+        &copy; Copyright:
+        <a class="text-white" href="#">Imtithal</a>
+      </footer>
+    
+  </div>
+        <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+        <script src="{% static 'blog/js/popper.min.js' %}"></script>
+        <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>  
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="{% static 'blog/js/Animation.js' %}"></script>
+        
+</body>   
+
+<!-- JavaScript to scroll to the section -->
+<script>
+  function scrollToAboutSection() {
+    var section = document.getElementById('About_Section');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+
+<script>
+  function scrollToservicesSection() {
+    var section = document.getElementById('services_Section');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+
+
+</html>

@@ -1,0 +1,74 @@
+#Used Laibraries
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import sacrebleu
+import pandas as pd
+
+
+# Loading the fine-tuned model and its tokenizer 
+model_path = r"C:\Users\96659\Downloads\Imtathil_Model\Last_saved_mode"
+model = GPT2LMHeadModel.from_pretrained(model_path)
+tokenizer = GPT2Tokenizer.from_pretrained(model_path)
+
+# Function to generate text using beam search
+def generate_text(prompt, model, tokenizer, max_length, num_return_sequences=1, no_repeat_ngram_size=2, num_beams=10):
+    inputs = tokenizer(prompt, return_tensors='pt')
+    input_ids = inputs['input_ids']
+    
+    output_sequences = model.generate(
+        input_ids=input_ids,
+        max_length=max_length,
+        num_return_sequences=num_return_sequences,
+        no_repeat_ngram_size=no_repeat_ngram_size,
+        num_beams=num_beams,
+        early_stopping=True,
+        pad_token_id=tokenizer.eos_token_id  
+    )
+
+    # Generate the text based on the input
+    
+    generated_texts = []
+    for generated_sequence in output_sequences:
+        generated_text = tokenizer.decode(generated_sequence, skip_special_tokens=True)
+        generated_texts.append(generated_text)
+    
+    return generated_texts
+
+
+prompt = "يجب أن تغطي متطلبات الأمن السيبراني لحماية البريد الإلكتروني للجهة بحد أدنى ما يلي النسخ الاحتياطي و الأرشفة للبريد الإلكتروني"
+
+reference_texts = [["العمل على تحديد متطلبات هذا الضابط و توثيقها في وثيقة متطلبات الأمن السيبراني لحماية البريد الإلكتروني للجهة و اعتمادها من قبل صاحب الصلاحية تحديد التقنيات المتوافقة مع الأنظمة التقنية والبنية التحتية التقنية للجهة لعمل النسخ الاحتياطي و الأرشفة للبريد الإلكتروني للجهة تحديد مدة الاحتفاظ بالنسخ الاحتياطية و الأرشفة للبريد الإلكتروني للجهة العمل على القيام بالنسخ الاحتياطي على مستوى خوادم البريد الإلكتروني للجهة العمل على تفعيل خاصية أرشفة جميع صناديق البريد الإلكتروني للجهة"]]
+                    
+reference_length = len(tokenizer(reference_texts[0][0], return_tensors='pt')['input_ids'][0])
+
+# Generate the text based on the the reference length
+num_return_sequences = 1  #number of sequences to generate
+num_beams = 5  #number of beams for beam search
+generated_texts = generate_text(prompts[0], model, tokenizer, max_length=reference_length, num_return_sequences=num_return_sequences, no_repeat_ngram_size=2, num_beams=num_beams)
+
+# Initialize lists to store scores
+bleu_scores = []
+precisions_1gram = []
+precisions_2gram = []
+precisions_3gram = []
+precisions_4gram = []
+
+#Printing The Scores
+
+for i, generated_text in enumerate(generated_texts):
+    sacrebleu_score = sacrebleu.corpus_bleu([generated_text], reference_texts)
+    bleu_scores.append(sacrebleu_score.score)
+    precisions_1gram.append(sacrebleu_score.precisions[0])
+    precisions_2gram.append(sacrebleu_score.precisions[1])
+    precisions_3gram.append(sacrebleu_score.precisions[2])
+    precisions_4gram.append(sacrebleu_score.precisions[3])
+    
+    print(f"Generated text {i + 1}:")
+    print(generated_text)
+    print(f"SacreBLEU score: {sacrebleu_score.score:0.2f}")
+    print(f"1-gram precision: {sacrebleu_score.precisions[0]:0.2f}")
+    print(f"2-gram precision: {sacrebleu_score.precisions[1]:0.2f}")
+    print(f"3-gram precision: {sacrebleu_score.precisions[2]:0.2f}")
+    print(f"4-gram precision: {sacrebleu_score.precisions[3]:0.2f}")
+    print("\n")
+
+print("Reference text length:", reference_length)
