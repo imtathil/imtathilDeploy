@@ -87,7 +87,7 @@ class DataPreprocessor:
 
             return rearranged_sentence
         
-        model_name = r"C:\Users\ACSW10-03032024K\Desktop\GenAi\GenAi\modelStuff\TrainedModel" #Traiend model path
+        model_name = r"blog\static\blog\model\TrainedModel" #Traiend model path
         tokenizer = GPT2Tokenizer.from_pretrained(model_name)
         model = GPT2LMHeadModel.from_pretrained(model_name)
         tokenizer.pad_token_id = tokenizer.eos_token_id
@@ -223,7 +223,7 @@ class DataPreprocessor:
         
         ## Code To generate نسبة مستوى الالتزام الضوابط في أداة الهيئة as a pdf ##
         # Register the custom font file
-        pdfmetrics.registerFont(TTFont('ArabicFont', r"C:\Users\ACSW10-03032024K\Desktop\modelStuff\modelStuff\Font.ttf"))  # Replace 'path_to_your_arabic_font.ttf' with the actual file path
+        pdfmetrics.registerFont(TTFont('ArabicFont', r"blog\static\blog\Fonts\Font.ttf"))  # Replace 'path_to_your_arabic_font.ttf' with the actual file path
 
         # Create a PDF document
         doc = SimpleDocTemplate("compliance_Stats.pdf", pagesize=letter)
@@ -319,7 +319,7 @@ class DataPreprocessor:
 
         def generate_pdf_with_table(data):
             pdf = FPDF(orientation='L')  # Set orientation to landscape
-            pdf.add_font("Arial", style="", fname=r"C:\Users\ACSW10-03032024K\Desktop\modelStuff\modelStuff\Font.ttf", uni=True) #the path of the font used
+            pdf.add_font("Arial", style="", fname=r"blog\static\blog\Fonts\Font.ttf", uni=True) #the path of the font used
             pdf.add_page()
             pdf.set_font("Arial", size=10)
             col_widths = [pdf.get_string_width(arabic_text(header)) + 6 for header in data.columns]
@@ -688,9 +688,9 @@ class DataPreprocessor:
         # Example usage
         title = get_display(arabic_reshaper.reshape("هذا التقرير تم إنشاؤه باستخدام أداة إمتثل"))
         text = get_display(arabic_reshaper.reshape("هذا تقرير تم إنشاؤه لأداة إمتثل"))
-        image_path1 = r"C:\Users\ACSW10-03032024K\Desktop\GenAi\GenAi\modelStuff\modelStuff\ImtathilPDF.jpg"
-        image_path2 = r"C:\Users\ACSW10-03032024K\Desktop\GenAi\GenAi\django_project\myProject_src\blog\static\blog\images\back.jpg"
-        font_path = r"C:\Users\ACSW10-03032024K\Desktop\modelStuff\modelStuff\Font.ttf"
+        image_path1 = r"blog\static\blog\images\ImtathilPDF.jpg"
+        image_path2 = r"blog\static\blog\images\back.jpg"
+        font_path = r"blog\static\blog\Fonts\Font.ttf"
         output_file = "Cover_Page.pdf"
 
         create_pdf(title, text, image_path1, image_path2, output_file, font_path)
