@@ -14,7 +14,7 @@
                 <span class="text-secondary"> تم إنشـاء التقرير في :{{ post.post_date | date:'d-m-Y' }} </span>
                 <h3 style="margin-top: 20%;">{{ post.title }}</h3>
                 <p>{{ post.content }}</p>
-                <a href="{% url 'download_combined_pdf' %}" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"> تحميل التقرير </a>
+                <a href="{% url 'download_pdf' post.id %}" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"> تحميل التقرير </a>
               </div>
             </div>
             <div class="card-footer">

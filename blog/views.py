@@ -105,7 +105,11 @@ class PostCreateView(LoginRequiredMixin, CreateView):
                     pdf_data = DataPreprocessor.mergepdf(preprocessed_data)  # Assuming a function generate_pdf is defined
 
                     # Create a variable for the ContentFile
-                    pdf_content = pdf_data.getvalue()  # Get the content of the PDF file
+                    #pdf_content = pdf_data.getvalue()  # Get the content of the PDF file
+
+                    # Create a ContentFile from the PDF data
+                    pdf_content = ContentFile(pdf_data.getvalue(), name='generated_pdf.pdf')  # New Line
+
 
                     # Save the generated PDF to the Post model
                     # form.instance.generated_pdf.save('generated_pdf.pdf', ContentFile(pdf_content))
@@ -114,7 +118,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
                     form.instance.author = self.request.user
                     form.instance.preprocessed_data = preprocessed_data # Assuming the Post model has a field for this
 
-
+                    # Save the generated PDF to the Post model
+                    form.instance.generated_pdf.save(pdf_content.name, pdf_content)  # New Line
 
                     return super().form_valid(form)
                 else:
@@ -131,22 +136,22 @@ class PostCreateView(LoginRequiredMixin, CreateView):
             return super().form_invalid(form)
         
 
-def download_combined_pdf(request):
-    # Retrieve the file path from the session
-    file_path = request.session.get('uploaded_file_path')
-    if file_path:
-        preprocessor1 = DataPreprocessor(file_path)
-        pdf = preprocessor1.mergepdf() 
-        
-        response = HttpResponse(content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename=GeneratedReport.pdf'
-        response.write(pdf.getvalue()) 
-        return response 
+def download_combined_pdf(request, post_id):
+    # Retrieve the Post instance by ID
+    post = get_object_or_404(Post, id=post_id)
+    
+    # Get the PDF file associated with the Post instance
+    if post.generated_pdf:
+        # Get the PDF file content
+        pdf_file = post.generated_pdf
+
+        response = HttpResponse(pdf_file.read(), content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="{pdf_file.name}"'
+        return response
     
     else:
-        messages.error(request, 'No file path found in session.')
-        return redirect('upload') 
-
+        messages.error(request, 'No PDF file found for this post.')
+        return redirect('upload')  # Redirect to a relevant page
 
 class PostUpdateView(UserPassesTestMixin,LoginRequiredMixin,UpdateView):
     model = Post 
