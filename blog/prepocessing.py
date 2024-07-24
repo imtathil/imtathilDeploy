@@ -1,6 +1,6 @@
 import pickle
 
-#To solve GUI problems areeeeeeeeej 
+#To solve GUI problems
 import matplotlib
 matplotlib.use('Agg')
 
