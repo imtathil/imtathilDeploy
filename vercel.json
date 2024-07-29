@@ -3,7 +3,7 @@
         "src": "myProject_src/web_project/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" },
-        "entryPoint": "myProject_src/blog/templates/blog/index.html"
+        "entryPoint": "index.html"
     }],
     "routes": [
         {
