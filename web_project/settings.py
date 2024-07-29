@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o%jdn7fypi)wiqbk3*si)9-=c49vu7lrr_i*@$k^j#h*ivv3(b'
 
 # SECURITY WARNING: don't run with debug turned on in production!!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
 
 
 
@@ -125,8 +125,8 @@ USE_TZ = True
 #making satic folder for all the project
 
 STATIC_URL = 'static/'
-#STATICFILES_DIRS = os.path.join(BASE_DIR,"static")
-#STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles_build","static")
+STATICFILES_DIRS = os.path.join(BASE_DIR,"static")
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles_build","static")
 #STATICFILES_DIRS =[
 #    os.path.join(BASE_DIR,"static"),
 #    'D:\django_project\myProject_src\static',
