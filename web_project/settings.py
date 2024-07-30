@@ -124,9 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 #making satic folder for all the project
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR,"static")
-STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles_build","static")
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 #STATICFILES_DIRS =[
 #    os.path.join(BASE_DIR,"static"),
 #    'D:\django_project\myProject_src\static',
@@ -134,6 +136,10 @@ STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles_build","static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
