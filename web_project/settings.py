@@ -23,12 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o%jdn7fypi)wiqbk3*si)9-=c49vu7lrr_i*@$k^j#h*ivv3(b'
 
 # SECURITY WARNING: don't run with debug turned on in production!!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
-
-
-
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 # Application definition
 # Adding apps
@@ -42,7 +39,6 @@ INSTALLED_APPS = [
     'web_project',
     'blog',
     'user',
-    'riskassesment',
     'crispy_forms',
     'crispy_bootstrap4',
 ]
@@ -124,11 +120,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 #making satic folder for all the project
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
+STATIC_URL = 'static/'
+#STATICFILES_DIRS = os.path.join(BASE_DIR,"staticfiles")
+#STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles_build","static")
 #STATICFILES_DIRS =[
 #    os.path.join(BASE_DIR,"static"),
 #    'D:\django_project\myProject_src\static',
@@ -136,9 +130,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-
-
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
