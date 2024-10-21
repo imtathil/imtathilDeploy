@@ -17,6 +17,9 @@
 <!--  i havnt add any logos yet -->
     <link rel="shortcut icon" href=" {% static 'blog/images/favicon.png' %}">     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
     <style>
       
       body {
@@ -177,9 +180,10 @@
         <!-- social icon-->
         <div class="col-sm-12">
           <ul class="social-network">
-            <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-linkedin"></i></a></li>
-          </ul>
+            
+            <li><a class="waves-effect waves-dark" href="https://x.com/Imtathil_sa"><i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i></a></li>
+            <li><a class="waves-effect waves-dark" href="https://www.linkedin.com/in/imtathil-tool-3390a9311/"><i class="fab fa-linkedin"></i></a></li>
+          
         </div>
       </div>
     </div>
@@ -242,22 +246,35 @@
   </section>
 
   <!-- Footer -->
-  <div style="position: relative; bottom: 0; width: 100%;">
-  
+  <div style="position: static; bottom: 0; width: 100%; margin-top: 50px;">
     <footer class="bg-dark text-center text-white">
-    <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: #3B5286">
-        &copy; Copyright:
-        <a class="text-white" href="#">Imtithal</a>
-      </footer>
-    
-  </div>
-        <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+        <div class="text-center p-3" style="background-color: #3B5286;">
+            &copy; جميع الحقوق محفوظة لإمتثل 2024
+            <div style="display: flex; justify-content: center; align-items: center; text-align: right;">
+                <img src="{% static 'blog/images/intelogo.png' %}" alt="..." style="width: 2%; height: 2%;">
+                <p class="text-white" style="font-size: 80%; margin-left: 10px; margin-top: 1%;">رقم التسجيل للهيئة السعودية للملكية الفكريه : 24-12- 17129772</p>
+            </div>
+        </div>
+    </footer>
+</div>
+  
+        <!-- <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script> -->
+
+         <!-- jQuery (Full version) -->
+        <script src="{% static 'blog/js/jquery-3.7.1.min.js' %}"></script>  
+
+         <!-- Popper.js (for Bootstrap tooltips, popovers) -->       
         <script src="{% static 'blog/js/popper.min.js' %}"></script>
+
+         <!-- Bootstrap JavaScript -->
         <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+        
+        <!-- Other scripts -->
         <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>  
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="{% static 'blog/js/Animation.js' %}"></script>
+
+        
         
 </body>   
 

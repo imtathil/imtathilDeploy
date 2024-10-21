@@ -21,6 +21,8 @@ import pandas as pd
 from django.core.files.storage import FileSystemStorage
 import pickle
 import io
+
+
 #creating views
 
 def Try(request) :

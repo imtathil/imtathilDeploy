@@ -1,74 +1,97 @@
-#Used Laibraries
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
-import sacrebleu
-import pandas as pd
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="display: flex; justify-content: center; align-items: center;">
 
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-color: gray;"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" style="background-color: gray;"></button>
+    </div>
 
-# Loading the fine-tuned model and its tokenizer 
-model_path = r"C:\Users\96659\Downloads\Imtathil_Model\Last_saved_mode"
-model = GPT2LMHeadModel.from_pretrained(model_path)
-tokenizer = GPT2Tokenizer.from_pretrained(model_path)
+    <div class="carousel-inner" style="text-align: center; margin-bottom: 20px;">
+        <div class="carousel-item active">
+            <div class="carousel-image-container">
+                <img src="{% static 'blog/images/AiGA.png' %}" class="d-block" alt="..." style="width: auto; height: 80%; max-height: 200px;">
+            </div>
+            <div class="d-none d-md-block" style="color: gray;">
+                <h5 style="color:#3B5286;">شريك داعـم</h5>
+                <p>جمعية أهلية غير ربحية تهتم بتعزيز قدرات الذكاء الاصطناعي عبر تقديم التوعية والتدريب والاستشارات في مجال حوكمة الذكاء الاصطناعي والالتزام بأخلاقياته.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
 
-# Function to generate text using beam search
-def generate_text(prompt, model, tokenizer, max_length, num_return_sequences=1, no_repeat_ngram_size=2, num_beams=10):
-    inputs = tokenizer(prompt, return_tensors='pt')
-    input_ids = inputs['input_ids']
-    
-    output_sequences = model.generate(
-        input_ids=input_ids,
-        max_length=max_length,
-        num_return_sequences=num_return_sequences,
-        no_repeat_ngram_size=no_repeat_ngram_size,
-        num_beams=num_beams,
-        early_stopping=True,
-        pad_token_id=tokenizer.eos_token_id  
-    )
+            <div class="carousel-image-container">
+                <img src="{% static 'blog/images/Sd.png' %}" class="d-block" alt="..." style="width: auto; height: 80%; max-height: 200px;">
+            </div>
+            <div class="d-none d-md-block" style="color: gray;">
+                <h5 style="color:#3B5286;">شريك تقني</h5>
+                <p>إحدى أبرز مقدمي خدمات الحوسبة السحابية الخاصة في المملكة العربية السعودية، حيث تتيح خبرتها تقديم حلول مبتكرة تُسهِّل الامتثال للأمن واللوائح التنظيمية.</p>
+            </div>
+        </div>
+    </div>
 
-    # Generate the text based on the input
-    
-    generated_texts = []
-    for generated_sequence in output_sequences:
-        generated_text = tokenizer.decode(generated_sequence, skip_special_tokens=True)
-        generated_texts.append(generated_text)
-    
-    return generated_texts
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="fas fa-chevron-left" aria-hidden="true" style="color: gray;"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="fas fa-chevron-right" aria-hidden="true" style="color: gray;"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
+<style>
+    .carousel-image-container {
+        width: 100%; /* Make the container full width */
+        height: 200px; /* Set a smaller fixed height for the container */
+        overflow: hidden; /* Hide overflow to maintain shape */
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center the image vertically */
+    }
 
-prompt = "يجب أن تغطي متطلبات الأمن السيبراني لحماية البريد الإلكتروني للجهة بحد أدنى ما يلي النسخ الاحتياطي و الأرشفة للبريد الإلكتروني"
+    .carousel-image-container img {
+        width: auto; /* Maintain image aspect ratio */
+        height: 100%; /* Make the image fill the container height */
+        max-width: none; /* Prevent the image from exceeding its container */
+    }
 
-reference_texts = [["العمل على تحديد متطلبات هذا الضابط و توثيقها في وثيقة متطلبات الأمن السيبراني لحماية البريد الإلكتروني للجهة و اعتمادها من قبل صاحب الصلاحية تحديد التقنيات المتوافقة مع الأنظمة التقنية والبنية التحتية التقنية للجهة لعمل النسخ الاحتياطي و الأرشفة للبريد الإلكتروني للجهة تحديد مدة الاحتفاظ بالنسخ الاحتياطية و الأرشفة للبريد الإلكتروني للجهة العمل على القيام بالنسخ الاحتياطي على مستوى خوادم البريد الإلكتروني للجهة العمل على تفعيل خاصية أرشفة جميع صناديق البريد الإلكتروني للجهة"]]
-                    
-reference_length = len(tokenizer(reference_texts[0][0], return_tensors='pt')['input_ids'][0])
+    .sponsorContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-# Generate the text based on the the reference length
-num_return_sequences = 1  #number of sequences to generate
-num_beams = 5  #number of beams for beam search
-generated_texts = generate_text(prompts[0], model, tokenizer, max_length=reference_length, num_return_sequences=num_return_sequences, no_repeat_ngram_size=2, num_beams=num_beams)
+    .sponsorCard {
+        border: none;
+        transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
 
-# Initialize lists to store scores
-bleu_scores = []
-precisions_1gram = []
-precisions_2gram = []
-precisions_3gram = []
-precisions_4gram = []
+    .rectangular-sponsorCard img,
+    .square-sponsorCard img {
+        width: 100%;
+        height: auto;
+    }
 
-#Printing The Scores
+    .rectangular-sponsorCard,
+    .square-sponsorCard {
+        height: 100px;
+    }
 
-for i, generated_text in enumerate(generated_texts):
-    sacrebleu_score = sacrebleu.corpus_bleu([generated_text], reference_texts)
-    bleu_scores.append(sacrebleu_score.score)
-    precisions_1gram.append(sacrebleu_score.precisions[0])
-    precisions_2gram.append(sacrebleu_score.precisions[1])
-    precisions_3gram.append(sacrebleu_score.precisions[2])
-    precisions_4gram.append(sacrebleu_score.precisions[3])
-    
-    print(f"Generated text {i + 1}:")
-    print(generated_text)
-    print(f"SacreBLEU score: {sacrebleu_score.score:0.2f}")
-    print(f"1-gram precision: {sacrebleu_score.precisions[0]:0.2f}")
-    print(f"2-gram precision: {sacrebleu_score.precisions[1]:0.2f}")
-    print(f"3-gram precision: {sacrebleu_score.precisions[2]:0.2f}")
-    print(f"4-gram precision: {sacrebleu_score.precisions[3]:0.2f}")
-    print("\n")
+    .sponsorcol-md-9 {
+        width: 60%;
+    }
 
-print("Reference text length:", reference_length)
+    .sponsorcol-md-3 {
+        width: 40%;
+    }
+</style>
+
+{% endblock content %}
